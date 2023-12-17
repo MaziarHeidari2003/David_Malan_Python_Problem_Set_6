@@ -1,3 +1,6 @@
+ # so there is gonna be a sequence of numbers and we are gonna tell if they are ascnding or decending 
+ # this file is used for lines_of_code.py
+
 n = 0 
 while n <= 0 :
   n = int(input("enter how many numbers we are going to use: "))
