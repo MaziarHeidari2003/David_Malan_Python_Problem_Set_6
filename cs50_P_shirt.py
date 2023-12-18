@@ -18,10 +18,7 @@ def main():
   muppet.paste(shirtfile,shirtfile)  
   muppet.save(sys.argv[2])
 
-
-  
-
-
+#something is wrong here and the final image isnt quite what i want 
 
 def check_comman_line():
   if len(sys.argv) != 3 :
@@ -38,7 +35,6 @@ def check_extension(file):
   if file in ['jpeg','jpg','png']:
     return True
   return False
-
 
 
 
