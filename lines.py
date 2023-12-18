@@ -5,20 +5,26 @@ Assume that any line that starts with #, optionally preceded by whitespace, is a
 """
 
 
-
 import sys
 
 def main():
   check_command_line()
-  file = open(sys.argv[1],'r')
+  file = open(sys.argv[1])
   lines = file.readlines()
-  count_lines = 0
+  counter_lines = 0
   for line in lines:
-    if check_space_or_comment(line) == False :
-      count_lines += 1
-  print(count_lines)      
+    if check_comment_or_space(line) == False :
+      counter_lines += 1
+  print(counter_lines)    
 
 
+def check_comment_or_space(line):
+  if line.startswith('#'):
+    return True
+  if line.lstrip().isspace():
+    return True
+  return False
+      
 
 def check_command_line():
   if len(sys.argv) > 2 :
@@ -28,14 +34,6 @@ def check_command_line():
   else:
     if not '.py' in sys.argv[1]:
       sys.exit('Not a Python file')  
-
-def check_space_or_comment(line):
-    if line.lstrip().startswith('#'):
-      return True
-    if line.isspace():
-      return True
-    return False
-
 
 if __name__ == '__main__' :
   main()
